@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shop</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <div class="logo"></div>
+      <div>
+        <h1>Shop</h1>
+        <div class="pill" id="apiStatus">Učitavanje…</div>
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <div class="pill" id="cartPill">Cart: 0</div>
+      <button class="btn primary" id="openCartBtn" type="button">Korpa</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="panel">
+      <h2>Filteri</h2>
+
+      <div class="filters">
+        <div class="field">
+          <label for="q">Pretraga</label>
+          <input id="q" placeholder="npr. smartphone, laptop…" />
+        </div>
+
+        <div class="field">
+          <label for="category">Kategorija</label>
+          <select id="category">
+            <option value="__all__">Sve</option>
+          </select>
+        </div>
+
+        <div class="field">
+            <label for="brand">Brend / Marka</label>
+            <select id="brand">
+            <option value="__all__">Sve</option>
+          </select>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label for="minPrice">Cena min</label>
+            <input id="minPrice" type="number" min="0" step="0.01" />
+          </div>
+          <div class="field">
+            <label for="maxPrice">Cena max</label>
+            <input id="maxPrice" type="number" min="0" step="0.01" />
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label for="minRating">Ocena min</label>
+            <select id="minRating">
+              <option value="0">0+</option>
+              <option value="1">1+</option>
+              <option value="2">2+</option>
+              <option value="3" selected>3+</option>
+              <option value="4">4+</option>
+              <option value="4.5">4.5+</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="inStock">Na stanju</label>
+            <select id="inStock">
+              <option value="__any__" selected>Sve</option>
+              <option value="true">Samo na stanju</option>
+              <option value="false">Samo nema</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label for="sort">Sortiranje</label>
+            <select id="sort">
+              <option value="relevance" selected>Relevantno</option>
+              <option value="price_asc">Cena ↑</option>
+              <option value="price_desc">Cena ↓</option>
+              <option value="name_asc">Naziv A→Z</option>
+              <option value="rating_desc">Ocena ↓</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="perPage">Po strani</label>
+            <select id="perPage">
+              <option value="6">6</option>
+              <option value="9" selected>9</option>
+              <option value="12">12</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row2">
+          <button class="btn" id="resetBtn" type="button">Reset</button>
+          <button class="btn ghost" id="reloadBtn" type="button">Reload</button>
+        </div>
+
+        <div class="help">
+          Filtera ima 6. Klik na ime proizvoda otvara description. “Add to cart” otvara korpu.
+        </div>
+      </div>
+    </aside>
+
+    <section class="panel">
+      <h2>Proizvodi</h2>
+
+      <div class="content">
+        <div class="meta">
+          <div class="meta-left">
+            <div class="pill" id="resultsMeta">Ukupno: 0</div>
+            <div class="pill" id="pageMeta">Stranica 1 od 1</div>
+          </div>
+          <div class="meta-right">
+            <button class="btn small" id="prevBtn" type="button">Back</button>
+            <button class="btn small" id="nextBtn" type="button">Next</button>
+          </div>
+        </div>
+
+        <div class="error" id="errorBox" style="display:none"></div>
+
+        <div class="products" id="products"></div>
+
+        <div class="pagination">
+          <div class="pill" id="bottomMeta">Stranica 1 od 1 • Ukupno: 0</div>
+          <div class="meta-right">
+            <button class="btn small" id="prevBtn2" type="button">Back</button>
+            <button class="btn small" id="nextBtn2" type="button">Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  
+  <dialog class="modal" id="cartDialog">
+    <div class="modal-bar">
+      <strong>Korpa</strong>
+      <button class="btn small" id="closeCart" type="button">Zatvori</button>
+    </div>
+    <iframe class="frame" id="cartFrame" src="cart.html" title="Cart"></iframe>
+  </dialog>
+
+  
+  <dialog class="modal" id="productDialog">
+    <div class="modal-bar">
+      <strong>Opis</strong>
+      <button class="btn small" id="closeProduct" type="button">Zatvori</button>
+    </div>
+    <iframe class="frame" id="productFrame" src="product.html" title="Product"></iframe>
+  </dialog>
+
+  
+  <dialog class="modal" id="checkoutDialog">
+    <div class="modal-bar">
+      <strong>Checkout</strong>
+      <button class="btn small" id="closeCheckout" type="button">Zatvori</button>
+    </div>
+    <iframe class="frame" id="checkoutFrame" src="checkout.html" title="Checkout"></iframe>
+  </dialog>
+
+  <script src="config.js"></script>
+  <script src="common.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

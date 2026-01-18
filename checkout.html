@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout</title>
+  <link rel="stylesheet" href="checkout.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <h1>Checkout</h1>
+        <div class="pill" id="meta">—</div>
+      </div>
+      <button class="btn" id="closeBtn" type="button">Zatvori</button>
+    </div>
+
+    <div class="notice" id="summary">—</div>
+
+    <form class="form" id="form">
+      <div class="row2">
+        <div class="field">
+          <label for="name">Ime i prezime</label>
+          <input id="name" required placeholder="npr. Petar Petrović" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" required placeholder="npr. petar@mail.com" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="address">Adresa</label>
+        <input id="address" required placeholder="Ulica i broj, grad" />
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label for="pay">Plaćanje</label>
+          <select id="pay" required>
+            <option value="card" selected>Kartica</option>
+            <option value="cod">Pouzećem</option>
+            <option value="bank">Uplata na račun</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="note">Napomena (opciono)</label>
+          <input id="note" placeholder="npr. Pozvati pre isporuke" />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" id="cancelBtn" type="button">Otkaži</button>
+        <button class="btn primary" type="submit">Potvrdi</button>
+      </div>
+    </form>
+
+    <div class="notice" id="done" style="display:none"></div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="common.js"></script>
+  <script src="checkout.js"></script>
+</body>
+</html>

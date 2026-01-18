@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Product</title>
+  <link rel="stylesheet" href="product.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <h1 id="title">Proizvod</h1>
+        <div class="pill" id="meta">—</div>
+      </div>
+      <button class="btn" id="closeBtn" type="button">Zatvori</button>
+    </div>
+
+    <div class="card">
+      <div class="img" id="imgWrap">
+        <img id="img" alt="" />
+      </div>
+
+      <div class="info">
+        <div class="row">
+          <div class="pill" id="category">Kategorija</div>
+          <div class="pill" id="brand">Brend</div>
+          <div class="pill" id="unit">Unit</div>
+          <div class="pill" id="rating">Ocena</div>
+          <div class="pill" id="discount" style="display:none">Popust</div>
+          <div class="pill" id="stock">—</div>
+        </div>
+
+        <div class="price" id="price">0</div>
+        <div class="desc" id="desc">Opis…</div>
+
+        <div class="actions">
+          <button class="btn primary" id="addBtn" type="button">Add to cart</button>
+        </div>
+
+        <div class="note">
+          Klik “Add to cart” dodaje proizvod i otvara korpu na glavnoj stranici.
+        </div>
+      </div>
+    </div>
+
+    <div class="error" id="errorBox" style="display:none"></div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="common.js"></script>
+  <script src="product.js"></script>
+</body>
+</html>
